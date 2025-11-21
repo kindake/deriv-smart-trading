@@ -1,0 +1,96 @@
+/* ===============================
+   GLOBAL THEME VARIABLES
+   =============================== */
+:root {
+  /* Light theme (default) */
+  /*--bg-color: #f9f9f9; *//* ✅ your exact soft white */
+  --bg-color: #ffffff; /* pure white */
+  --load-color: #ffffff; /* pure white */
+  --text-color: #1e293b;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0; /* standard borders */
+  --accent-border-color: #e5e5e5; /* bottom accent */
+  --accent-color: #2563eb;
+  --icon-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --icon-inner-bg: #f5f5f5; /* Light square background for icons */
+  --nav-bg-color: #e5e5e5; /* light mode background */
+  --workspace-bg: #ffffff; /* white for light mode */
+  --bp-gradient-top: #f0f0f0;
+  --bp-gradient-bottom: #ffffff;
+  --bpd-bg: #e5e5e5;        /* light gray box background */
+  --bpd-text-color: rgba(0, 0, 0, 0.6); /* soft gray text for light mode */
+  --bpd-strong-color: rgba(0, 0, 0, 0.8); /* slightly darker gray-black */
+  --dbtn-border-color: #000000; /* solid black */
+  --typeee-border-color: #f0f0f0; /* light gray divider */
+  --type-item-text-color: rgba(0, 0, 0, 0.75);
+  --text-soft: rgba(0, 0, 0, 0.6); /* light mode */
+  --border-bottom: #dcdcdc; /* light theme */
+  --black-border: #000000; /* bright black for light mode */
+  --subtext-color: rgba(0, 0, 255, 0.25); /* soft blue for light mode */
+  --coptr-bg: #e5e5e5; /* light mode: soft gray */
+  --text-general: #000000;  /* pure black */
+  --menu-bg: #ffffff;
+  --menu-divider: rgba(0, 0, 0, 0.06);
+  --tmenu-color: #f1f1f1;
+  --modal-color: #ffffff;
+  --hmodal-color: #eceff0;
+  --header-text-color: #444;
+  --acc-color: #3ba3ad;
+  --search-text-color: #222;
+  --search-border-color: #ddd;
+  --s-b-color: #ccc;
+  --spinner-b-color: #e0e0e0;
+}
+
+/* ===============================
+   DARK THEME
+   =============================== */
+[data-theme="dark"] {
+/*  --bg-color: #0f172a;*/
+  --bg-color: #000000; /* pure black */
+  --load-color: #121212; /* pure white */
+  /*--text-color: #e2e8f0;*/
+  --card-bg: #1e293b;
+  --border-color: #121212;
+  --accent-border-color: #121212;
+  --accent-color: #3b82f6;
+  --icon-bg: #000000;
+  --shadow-color: rgba(255, 255, 255, 0.08);
+  --icon-inner-bg: #1a1a1a; /* A softer contrast for icons */
+  --text-color: #ffffff; /* white text in dark mode */
+  --nav-bg-color: #121212; /* dark mode background */
+  --workspace-bg: #000000; /* pure black for dark mode */
+  --bp-gradient-top: #1e1e1e;
+  --bp-gradient-bottom: #121212;
+  --bpd-bg: #000000;         /* pure black background in dark mode */
+  --bpd-text-color: rgba(255, 255, 255, 0.7); /* soft white text */
+  --bpd-strong-color: rgba(255, 255, 255, 0.9); /* soft white for contrast */
+  --dbtn-border-color: #ffffff; /* solid white */
+  --typeee-border-color: #2a2a2a; /* subtle dark gray line */
+  --type-item-text-color: rgba(255, 255, 255, 0.75);
+  --text-soft: rgba(255, 255, 255, 0.6); /* dark mode */
+  --border-bottom: #333333; /* dark theme */
+  --black-border: #ffffff; /* white border for dark mode */
+  --subtext-color: rgba(173, 216, 230, 0.4); /* light blue with soft glow */
+  --coptr-bg: #1a2235; /* dark blue-gray: professional, not too dark */
+  --text-general: #f2f2f2;  /* soft white, not pure white */
+  --menu-bg: #121212;
+  --menu-divider: rgba(255, 255, 255, 0.08);
+  --tmenu-color: #121212;
+  --modal-color: #121212;
+  --hmodal-color: #121212;
+  --header-text-color: #eee;
+  --acc-color: #55c0cc;
+  --search-text-color: #eee;
+  --search-border-color: #555;
+  --s-b-color: #121212;
+  --spinner-b-color: #121212;
+}
+
+/* ============================================
+   Blockly workspace background (auto by theme)
+   ============================================ */
+#blocklyDiv {
+  background-color: var(--workspace-bg) !important;
+}

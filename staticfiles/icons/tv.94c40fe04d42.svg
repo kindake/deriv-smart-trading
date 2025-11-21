@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img">
+  <!-- rounded square badge -->
+  <rect x="1" y="1" width="22" height="22" rx="6" fill="#fff" />
+  <!-- subtle border (inherits color if you prefer) -->
+  <rect x="1" y="1" width="22" height="22" rx="6" fill="none" stroke="currentColor" opacity=".12"/>
+
+  <!-- tiny "TV"-style mark (simplified) in top-left -->
+  <rect x="5" y="5.5" width="5.6" height="1.6" fill="#0E1324" rx=".3"/>     <!-- T bar -->
+  <rect x="7.3" y="5.5" width="1.6" height="4"   fill="#0E1324" rx=".3"/>     <!-- T stem -->
+  <circle cx="12.6" cy="6.8" r=".9" fill="#0E1324"/>                          <!-- dot/mark -->
+
+  <!-- chart line -->
+  <path d="M5 16.5 L9.2 13.2 L11.2 15.2 L15.3 11.1 L18.5 13.7"
+        fill="none" stroke="#0E1324" stroke-width="1.6"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

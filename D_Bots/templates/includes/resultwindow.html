@@ -1,0 +1,94 @@
+{% load static %}
+
+<div id="resultwindow" class="rw">
+    <!-- Header Section -->
+    <div id="rid_heading" class="r_heading">
+        <button class="tab-button" data-tab="summary">Summary</button>
+        <button class="tab-button" data-tab="transaction">Transactions</button>
+        <button class="tab-button" data-tab="journal">Journal</button>
+    </div>
+
+    <!-- Content Sections (Initially Hidden) -->
+    <div id="summary" class="tab-content active">
+        <div class="bp"></div>
+
+        <div class="bpd">
+            <div class="bpd-top">
+                <div class="bpd-item bpd-stake"><strong>Total stake</strong><br>0.00 USD</div>
+                <div class="bpd-item bpd-payout"><strong>Total payout</strong><br>0.00 USD</div>
+                <div class="bpd-item bpd-runs"><strong>No. of runs</strong><br>0</div>
+            </div>
+            <div class="bpd-bottom">
+                <div class="bpd-item bpd-lost"><strong>Contracts lost</strong><br>0</div>
+                <div class="bpd-item bpd-won"><strong>Contracts won</strong><br>0</div>
+                <div class="bpd-item bpd-profit"><strong>Total profit/loss</strong><br>0.00 USD</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="transaction" class="tab-content">
+        <div class="dowview">
+            <button class="dbtn">Download</button>
+            <button class="dbtn">View Detail</button>
+        </div>
+
+        <div class="typeee">
+            <div class="type-item">Type</div>
+            <div class="type-item">Entry/Exit spot</div>
+            <div class="type-item">Buy price and P/L</div>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'icons/box.png' %}" alt="Box Icon" class="box-icon">
+            <p class="box-title">There are no transactions to display</p>
+            <p class="box-subtitle">Here are the possible reasons:</p>
+            <ul class="box-reasons">
+                <li>The bot is not running...</li>
+                <li>The stats are cleared...</li>
+            </ul>
+        </div>
+
+        <div class="bpd">
+            <div class="bpd-top">
+                <div class="bpd-item bpd-stake"><strong>Total stake</strong><br>0.00 USD</div>
+                <div class="bpd-item bpd-payout"><strong>Total payout</strong><br>0.00 USD</div>
+                <div class="bpd-item bpd-runs"><strong>No. of runs</strong><br>0</div>
+            </div>
+            <div class="bpd-bottom">
+                <div class="bpd-item bpd-lost"><strong>Contracts lost</strong><br>0</div>
+                <div class="bpd-item bpd-won"><strong>Contracts won</strong><br>0</div>
+                <div class="bpd-item bpd-profit"><strong>Total profit/loss</strong><br>0.00 USD</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="journal" class="tab-content">
+        <div class="dow-filt">
+            <button class="downld-btn">Download</button>
+            <div class="filters">
+                <span>Filters</span>
+                <img src="{% static 'icons/filter.png' %}" alt="Filters Icon" class="filter-icon">
+            </div>
+        </div>
+
+        <div class="jonco">
+            <div class="box-container">
+                <img src="{% static 'icons/box.png' %}" alt="Box Icon" class="box-icon">
+                <p class="no-messages"><strong>There are no messages to display</strong></p>
+                <p class="reason-text">Here are the possible reasons:</p>
+                <ul class="reason-list">
+                    <li>The bot is not running</li>
+                    <li>The stats are cleared</li>
+                    <li>All messages are filtered out</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Reset Section at the Bottom -->
+    <div id= "#reseti" class="rest">
+        <div class="reset-button">Reset</div>
+    </div>
+</div>

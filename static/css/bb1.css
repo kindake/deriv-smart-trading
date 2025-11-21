@@ -1,0 +1,1597 @@
+.blockSection {
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.blockSection:hover {
+    background-color: #e6e6e6;
+}
+
+.subsection {
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.subsection:hover {
+    background-color: #e6e6e6;
+}
+
+
+#blockSectionsContainer::-webkit-scrollbar {
+  width: 5px;
+}
+
+#blockSectionsContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+#blockSectionsContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sectionModal::-webkit-scrollbar {
+  width: 5px; /* thinner scrollbar */
+}
+
+.sectionModal::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* darker thumb */
+  border-radius: 3px;
+}
+
+.sectionModal::-webkit-scrollbar-track {
+  background: transparent; /* invisible track */
+}
+
+/* Optional: Firefox support */
+.sectionModal {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+.sectionModa::-webkit-scrollbar {
+  width: 5px; /* thinner scrollbar */
+}
+
+.sectionModa::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* darker thumb */
+  border-radius: 3px;
+}
+
+.sectionModa::-webkit-scrollbar-track {
+  background: transparent; /* invisible track */
+}
+
+/* Firefox support */
+.sectionModa {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+/* For Firefox */
+#blockSectionsContainer {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+.dashboard-btn {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-color) !important;
+    border: none;
+    padding: 0vh 1vw;
+    border-radius: 0px;
+    font-size: 14px !important;
+    color: var(--text-color) !important;
+    cursor: pointer !important; /* Makes it clickable */
+    transition: 0.3s;
+    height: 7vh;
+}
+
+.dashboard-icon {
+    width: 20px; /* Adjust size as needed */
+    height: 20px;
+    margin-left: 1vw;
+    margin-right: 1.5vw;
+}
+
+.left-g {
+    display: flex;
+    align-items: center;
+    gap: 2vw; /*px; /* Space between elements */
+}
+
+.subsection {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Base style for resultwindow */
+#resultwindow {
+    display: none; /* Start hidden */
+    width: 27vw;
+    height: 77vh;
+    background-color: var(--bg-color) !important;
+    /*background-color: white;*/
+    border-right: 1vw solid var(--accent-border-color) !important;
+    /*border-right: 1vw solid #e5e5e5 !important;*/
+    border-bottom: 1vw solid var(--accent-border-color);
+    /*border-right: 2.4vh solid #e5e5e5;
+    border-bottom: 2.4vh solid #e5e5e5;*/
+    border-top: none;
+    border-left: none;
+    position: absolute;
+    top: 11vh;
+    right: 0;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1000000;
+    opacity: 0;
+    transform: translateX(100%); /* start offscreen */
+}
+
+/* When active (toggled on) */
+#resultwindow.active {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0); /* slide into view */
+}
+
+/* Header Section Inside Result Window */
+.r_heading {
+    width: 27 vw;
+    height: 6.6vh;
+    /*background-color: white;*/
+    background-color: var(--bg-color) !important;
+    /*border-bottom: 2px solid #e5e5e5;*/
+    /*border: 2px solid #e5e5e5;*/
+    border-right: none;
+    border-left: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjusts items if needed */
+    position: relative; /* Stays inside #resultwindow */
+    border-radius: 1px;
+    color: var(--text-color);
+}
+
+/* Tab Buttons */
+.tab-button {
+    flex: 1; /* Equal width for all 3 buttons */
+    border: none;
+    width: 9vw !important;
+    height: 6.6vh;
+    /*background-color: white;*/
+    background-color: var(--bg-color) !important;    cursor: pointer;
+    text-align: center;
+    font-size: 12px;
+    /*transition: background 0.3s;*/
+    color: var(--text-color);
+    transition: background 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid #e5e5e5; /* Default no border */
+}
+
+/* Active Tab */
+.tab-button.active {
+    border-bottom: 2px solid red; /* Red bottom border */
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    padding: 0px;
+    font-size: 1vw;
+    background-color: var(--bg-color) !important;
+}
+
+/* Show Active Content */
+.tab-content.active {
+    display: block;
+}
+
+/* Reset Section (Bottom of Result Window) */
+.rest {
+    width: 100%; /*23vw; /* Same width as result window */
+    height: 10vh; /* Height of 4vw */
+    position: absolute;
+    bottom: 0vh; /* Stick to bottom */
+    /*border-top: 2px solid #e5e5e5; *//* Red bottom border */
+    border-top: 2px solid var(--border-color) !important;
+    /*background-color: white; /* Matches result window */
+    background-color: var(--bg-color) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover Effect *//* Reset Button (Black Rectangle) */
+.reset-button {
+    /*background-color: white;*/
+    background-color: var(--bg-color) !important;
+    /*color: black;*/
+    color: var(--text-color);
+    /*padding: 0.5vw 8vw;*/
+    font-size: 2.4vh;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px; /* Optional: Slightly rounded corners */
+    height: 5vh;
+    width: 23vw;
+    border: 0.5px solid #4d4d4d; /* Red bottom border */
+    font-weight: bold; /* Makes text bold */
+
+    /* Flexbox for vertical centering */
+    display: flex;
+    align-items: center;    /* Vertical center */
+    justify-content: center; /* Horizontal center */
+}
+.reset-button:hover {
+    background-color: lightgray;
+}
+
+
+.bp {
+    background: linear-gradient(to bottom, var(--bp-gradient-top), var(--bp-gradient-bottom));
+    /*border: 1px solid black;*/
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 4vh;
+    padding-bottom: 4.5vh;
+    font-size: 2.4vh;
+    height: 20.0vh !important;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    word-spacing: 1px;
+    white-space: nowrap; /* Prevents breaking into new lines */
+    text-align: center; /* Centers text inside */
+    margin: 0 auto; /* Centers horizontally */
+    margin-top: 1.5vh; /* Add spacing between sections */
+    overflow-x: hidden;    /* prevent horizontal scroll */
+    color: var(--text-color);
+}
+
+.bp::-webkit-scrollbar {
+  width: 6px;
+}
+
+.bp::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+.bp::-webkit-scrollbar-track {
+  background: transparent;
+}
+.bp strong {
+    display: inline !important;
+    font-weight: bold !important; /* or use if <b> */
+}
+
+
+#blocksMenuContainer::-webkit-scrollbar {
+  width: 6px; /* Adjust for vertical scrollbar */
+}
+
+#blocksMenuContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+#blocksMenuContainer::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 4px;
+}
+
+#blocksMenuContainer::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+
+/* Lower section */
+.bpd {
+    width: 25.0vw; /* Same width as result window */
+    height: 24.0vh;
+    background-color: var(--bpd-bg);
+    padding: 0px;
+    font-size: 1.9vh;
+    margin-top: 10px; /* Add spacing between sections */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    padding-top: 0vh;
+    padding-bottom: 0vh;
+    padding: 10px;
+}
+
+.bpd {
+    color: var(--bpd-text-color);
+}
+
+.bpd strong {
+    color: var(--bpd-strong-color);
+    font-weight: 900;
+}
+
+.bpd-top,
+.bpd-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    text-align: center;
+}
+
+.bpd-item {
+    padding: 5px;
+}
+
+.bpd-item strong {
+    display: block; /* Makes the bold text appear above */
+    font-weight: bold;
+}
+
+/* Styles for dowview */
+.dowview {
+    height: 7vh;
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+    border-bottom: 0.5px solid var(--typeee-border-color);
+    margin-left: 10px;
+}
+
+.dbtn {
+    border: 1px solid var(--dbtn-border-color);
+    border-radius: 4px;
+    padding: 5px 10px;
+    color: var(--text-color);
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Wrapper row */
+.typeee {
+    display: flex;                       /* use flexbox */
+    justify-content: space-between;      /* evenly spread */
+    border-bottom: 0.5px solid var(--typeee-border-color);
+    height: 10.5vh;                      /* row height */
+    align-items: center;                 /* vertical centering */
+}
+
+/* Each column */
+.type-item {
+    flex: 1;                             /* divide into equal parts */
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--type-item-text-color);
+    box-sizing: border-box;
+    padding-left: 1vw;                   /* default padding for all */
+}
+
+/* First column only */
+.type-item:first-child {
+    padding-left: 2vw;                   /* more space from left edge */
+}
+
+.hover-gray:hover {
+    background-color: rgba(220, 220, 220, 1); /* Light gray on hover */
+    cursor: pointer; /* Optional: changes cursor */
+    /*transition: background-color 0.2s ease; /* Optional: smooth transition */
+}
+
+/* Styles for box */
+.box {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0vw;
+    margin-top: 1px;  /* pushes the whole box away from what’s above it */
+    height: 12.0vh; /* Use full available height */
+    box-sizing: border-box; /* Ensures padding doesn’t affect height */
+    color: rgba(0, 0, 0, 0.6); /* Less black */
+}
+
+.box {
+    overflow-x: hidden;        /* hide horizontal scroll */
+    overflow-y: auto;          /* show vertical scroll */
+}
+
+.box::-webkit-scrollbar {
+    width: 6px;         /* Thin scrollbar */
+}
+
+.box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.box::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 3px;
+}
+
+.box::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+.box-icon {
+    width: 5vw; /* Adjust size */
+    height: 10vh; /*auto;*/
+    margin-bottom: 5px;
+    color: var(--text-soft) !important;
+}
+
+.box-icon {
+    filter: brightness(0) saturate(100%) sepia(1) hue-rotate(0deg) opacity(0.4);
+}
+
+.box-text {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: var(--text-soft) !important;
+}
+
+.box-reasons {
+    list-style-type: disc; /* Adds bullet points */
+    padding-left: 20px; /* Indents bullet points */
+    text-align: left;
+    font-size: 12px;
+}
+
+#journal {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Adds space between the two divs */
+}
+
+.jonco {
+    /*height: 23.5vw;*/
+    height: 35.5vh;
+    overflow-y: auto;         /* Enable vertical scroll */
+    overflow-x: hidden;       /* Hide horizontal scroll */
+    padding-top: 0vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    /* Optional: Style the vertical scrollbar */
+    scrollbar-width: thin;          /* For Firefox */
+    scrollbar-color: gray transparent; /* For Firefox */
+}
+
+.jonco::-webkit-scrollbar {
+    width: 6px; /* Thinner scrollbar */
+}
+
+.jonco::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.jonco::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.5);
+    border-radius: 4px;
+}
+
+/* Container for icon and text */
+.box-container {
+    text-align: center;
+    /*max-width: 80%;*/
+}
+
+.box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center image + text */
+    text-align: center;
+    padding-top: 2vh;
+    margin-top: -6.5vh;
+}
+
+.reason-list {
+    list-style-type: disc;
+    padding-left: 4vw; /* 4vw from the left */
+    text-align: left;
+    margin-top: 0vh;
+}
+
+/* Box icon */
+.box-icon {
+    width: 5vw;
+    height: 7vh;
+}
+
+/* Bold text with font size 12px */
+.no-messages {
+    font-size: 2.5vh;
+    font-weight: bold;
+    margin-top: 0px;
+}
+
+/* Normal text before the list */
+.reason-text {
+    font-size: 2.2vh;
+    font-weight: normal;
+    margin-top: 0px;
+}
+
+/* Bulleted list */
+.reason-list {
+    font-size: 2.2vh;
+    text-align: left;
+    list-style-type: disc; /* Bullet points */
+    margin-top: 0px;
+    padding-left: 2.0vw; /* Indent bullets */
+}
+
+.reason-list li {
+    margin-bottom: 1vh; /* or use px like 8px for fixed spacing */
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.dow-filt {
+    height: 7vh;
+    width: 100%;
+    display: flex;
+    gap: 12vw;
+    align-items: center; /* Vertically centers content */
+    justify-content: center; /*space-between; /* Pushes items to sides */
+    padding: 0 ;/*5vw; /* Adds left and right spacing */
+    background-color: var(--bg-color) !important;
+    border-bottom: 1px solid var(--border-bottom);
+    left: 2vw;
+}
+
+/* Download button */
+.downld-btn {
+    background-color: var(--bg-color) !important;
+    border: 1px solid var(--black-border);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* Filters section */
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Filters icon */
+.filter-icon {
+    width: 16px; /* Adjust icon size */
+    height: 16px;
+}
+
+.rst {
+    justify-content: flex-start; /* Align items to the right */
+    width: 26vw; /* Adjust width */
+    height: 5.5vh !important; /* Adjust height */
+    border-radius: 0.5vh; /* Rounded corners */
+    background-color: var(--bg-color) !important;
+    border: 1px solid var(--border-color) !important;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 1vw;  /* Push it 0.8vw from the right */
+    top: 35%;
+    overflow: hidden; /* Prevent content from spilling out */
+    /*transform: translateY(-50%); /* Centers it vertically */
+    z-index: 9999; /* Highest possible stacking order */
+}
+
+/* Back arrow positioning */
+.back-arrow {
+    position: absolute;
+    right: -10px; /* Place it inside the right border */
+    top: 50%; /* Move it to the middle */
+    transform: translateY(-50%); /* Adjust to perfectly center it */
+    width: 10px; /* Adjust the icon size */
+    height: 20px; /* Reduce the height */
+    cursor: pointer; /* Make it clickable */
+    z-index: 9999; /* Highest possible stacking order */
+
+    /* Add transition for smooth rotation */
+    transition: transform 0.5s ease-in-out; /* Smooth button rotation */
+    pointer-events: auto;
+}
+
+/* NAV CONTAINER */
+.secondary-nav {
+    position: relative;
+    top: 7vh !important;
+    background-color: var(--nav-bg-color) !important; /* auto-switches by theme */
+    height: 11.0vh !important;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* UL STYLING */
+.secondary-nav ul {
+    position: absolute !important;
+    left: 0vh !important;         /* ← Your main requirement */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 2.3vh;
+    top: calc(11vh * 1 / 4) !important; /* 2/3 height */
+}
+
+/* LI STYLING */
+.secondary-nav ul li {
+    display: flex;
+    align-items: center;
+    margin-left: 0vh;
+}
+
+/* Override for first item */
+.secondary-nav ul li:first-child {
+    margin-left: 1.0vw;
+}
+
+/* ACTIVE STATE */
+.secondary-nav ul li.active {
+    background-color: var(--bg-color) !important;
+}
+
+.secondary-nav ul li.active a {
+    font-weight: bold !important;
+    color: var(--text-color);
+}
+
+/* A TAG - YOUR MAIN FOCUS */
+.secondary-nav ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    width: 100%;
+    font-size: 2.3vh;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    padding: 2.1vh !important; /* Adds padding around icon and text */
+    box-sizing: border-box;    /* Ensures padding doesn't overflow */
+}
+
+/* ICON SIZING */
+.nav-icon {
+    width: 2.5vh;
+    height: 2.5vh;
+    object-fit: contain;
+}
+
+.run-btn {
+    margin-right: 10.5vw; /* Moves 'Run' button 20vh from the right */
+    /*padding: 10px 25px; /* Adjust button size */
+    background-color: rgba(50, 175, 165, 1);/* !important; /*rgba(78, 195, 197, 1) !important; /*green; /* Example styling */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 10px; /* Ensure text doesn't overflow */
+    white-space: nowrap; /* Prevent text from breaking */
+}
+
+.run-btn {
+    position: relative;
+    display: flex;
+    align-items: center;        /* Vertically center items */
+    color: white;
+    font-size: 10px;
+    gap: 0.5vh;                 /* Space between icon and text */
+    padding: 0.5vh 1vh;         /* Add some breathing space */
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 1px;         /* Optional: rounded corners */
+}
+
+.run-icon {
+    width: 2.5vh;
+    height: 2.5vh;
+    opacity: 1;
+    flex-shrink: 0;                /* Prevent shrinking */
+}
+
+.run-btn {
+    display: flex !important;
+    align-items: center !important;        /* Vertical center */
+    justify-content: center !important;    /* Horizontal center as a group */
+    padding: 0.5vh 1vh !important;
+    height: 6.5vh !important;
+    width: 25% !important; /*12.5vh !important;*/
+    border: none !important;
+    color: white !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    border-radius: 0.1vh !important;
+    cursor: pointer !important;
+    gap: 0.5vw !important;  /* Space between icon and text */
+    left: 0 !important;  /* Align to the left edge */
+}
+
+.run-icon {
+    width: 3vh !important;
+    height: 3vh !important;
+    object-fit: contain ;
+}
+
+.run-text {
+    display: inline-block !important;
+}
+
+.run-text {
+    padding-right: 0vh;
+}
+
+.hover-gray:hover {
+    background-color: rgba(200, 200, 200, 0.3); /* Light gray on hover */
+    cursor: pointer; /* Optional: makes it clear it's hoverable */
+}
+
+.hover-gray {
+    background-color: white;
+    transition: background-color 0.2s ease;
+}
+.hover-gray:hover {
+    background-color: rgba(200, 200, 200, 0.3) !important;
+}
+
+#blocklyDiv {
+  position: absolute;
+  top: 11vh !important;
+  left: 0;
+  width: 100%;
+}
+
+.blockly-container {
+    width: 100vw; /*calc(100% - 20px); /* Subtract border width */
+    height: 77.0vh !important; /*calc(100vh - 21vh); /* Adjusting for header/footer */
+    background-color: var(--bg-color) !important;
+    border-top: none; /* Removes top border */
+    border-radius: 0px;
+    left: 0%;
+    margin-left: 0vw; /* Aligns the div to the left */
+    top: 11vh !important;                  /* ✅ Positioned 12vh from the top */
+    box-sizing: border-box; /* Ensures border is inside the width */
+    position: absolute;
+    border-left: 1vw solid var(--accent-border-color) !important;
+    border-right: 1vw solid var(--accent-border-color) !important;
+    border-bottom: 1vw solid var(--accent-border-color);
+
+    border-top: none !important;
+}
+
+html, body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main-container {
+    top: 7vh !important;
+    height: 88vh !important;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    position: fixed !important;
+    margin-left: 0; /* Aligns the div to the left */
+    z-index: 1000;
+}
+
+/* Ensure header & footer take full width */
+header, footer {
+    width: 100vw !important;
+    background-color: var(--bg-color) !important;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    z-index: 9999; /* Increased z-index */
+}
+
+/* Header specific styling */
+header {
+    position: fixed !important; /* Sticks to the top */
+    top: 0;
+    left: 0;
+    height: 7vh; /* 8% of the viewport height */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Footer styling */
+footer {
+    position: fixed; /* Sticks to the bottom */
+    bottom: 0;
+    left: 0;
+    height: 5vh; /* 6% of the viewport height */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align items to the right */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Ensure body content doesn't get hidden behind fixed header/footer */
+body {
+    margin: 0;
+    top: 0vh !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Ensure nav elements are aligned */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /*space-between;*/
+    width: 100vw !important;
+}
+
+/* Responsive text & icons */
+header .icons, .balance, .login-button {
+    font-size: 1rem;
+    max-width: 100%;
+}
+
+
+/* General styling for right-g container */
+.right-g {
+    margin-left: auto; /* Pushes the container to the right */
+    display: flex;  /* Ensures the buttons are properly aligned */
+    gap: 4vw;  /* Adds space between buttons */
+    align-items: center; /* Centers buttons vertically */
+    position: relative; /* Adjusts positioning */
+}
+
+.signup-button,
+.login-button {
+    padding: 1vh 0.9vw;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effects */
+.signup-button {
+    background-color: red;
+    color: white;
+    transform: translateX(-2vw); /* Moves it left */
+
+}
+
+.signup-button:hover {
+    background-color: darkred !important;
+}
+
+.login-button {
+    background-color: white;
+    color: red;
+}
+
+.login-button:hover {
+    background-color: #ffcccc !important;
+    color: white;
+}
+
+.left-group,
+.right-group {
+    display: flex;
+    align-items: center;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+/* Run Button Styles */
+.run-btn {
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 1.5vh 3.5vh; /*10px 20px; /* Padding for size */
+    font-size: 12px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    position: absolute; /* Absolute positioning */
+    right: 100px; /* 100px from the right edge */
+    top: 50%; /* Vertically center in the nav */
+    transform: translateY(-50%); /* Adjust for proper vertical alignment */
+}
+
+/* Ensure nav is relatively positioned for the button to be placed inside */
+nav {
+    position: relative;
+}
+
+.blocklyFieldDropdown {
+    background-color: white !important;*/
+    color: black !important;
+    border-radius: 15px !important;  /* Creates the oval shape */
+    font-size: 10px !important;  /* Adjust font size as needed */
+    padding: 1px 2px;  /* Adds some space for the oval effect */
+}
+
+/* Style the main dropdown container to be oval-shaped, with white background and black text */
+.blocklyDropDownDiv {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow for visual effect */
+}
+
+/* Style the dropdown content inside */
+.blocklyDropDownDiv .blocklyDropDownContent {
+    color: #000000 !important; /* Black text color */
+}
+
+/* Style the dropdown arrow if needed */
+.blocklyDropDownDiv .blocklyDropDownArrow {
+    width: 12px;
+    height: 12px;
+    fill: black !important;
+}
+
+.blocklyText {
+  fill: black;
+}
+
+.blocklySvg text {
+  fill: black !important;
+}
+
+.blocklyFlyout .blocklyText,
+.blocklyMainWorkspace .blocklyText,
+.blocklyEditableText > text,
+text.blocklyText{
+  fill: black !important;
+}
+
+/* For the rounded corners of the dropdown field */
+.blocklyFieldRect.blocklyDropdownRect {
+  rx: 18 !important; /* Increase to make corners more rounded */
+  ry: 120 !important;
+  stroke: #acacac !important; /* Keep the stroke/border color if needed */
+  fill: white !important; /* Background color */
+}
+
+/* For the rounded corners of the dropdown field */
+.blocklyFieldRectText.blocklyDropdownRectText {
+  fill: black !important; /* Background color */
+}
+
+.blocklyDropdownText {
+  fill: black !important;
+}
+
+/* Dropdown div background */
+.blocklyDropDownDiv {
+    border-radius: 4px !important;
+}
+
+/* Dropdown text and font size */
+.blocklyDropDownDiv .goog-menuitem-content {
+    color: black !important;
+    font-size: 18px !important;
+}
+
+
+/* Targeting the dropdown text directly */
+.blocklyDropdownText {
+    fill: black !important; /* Ensures dropdown text is black */
+    color: black !important; /* Also set color to black */
+}
+
+/* Extra specificity to override any Blockly defaults */
+.blocklyFieldDropdown .blocklyText {
+    fill: black !important;
+    color: black !important;
+}
+.blocklyDropdownText {
+  fill: blue !important; /* Dropdown text like variable names */
+}
+.blocklyEditableText {
+  fill: white !important;
+}
+
+/* Round the edges of the dropdown field */
+.blocklyDropDownDiv {
+  border-radius: 0.5vh !important;  /* Increase this value for more rounded corners */
+}
+
+/* Ensure dropdown text is black */
+.blocklyMenuItem {
+  color: black !important;
+}
+
+/* Black text for cream blocks */
+.blocklyBlockCanvas .blocklyDraggable[data-colour="#e5e5e5"] .blocklyText {
+    fill: black !important; /* Black text */
+}
+
+.blockly-dark-theme .blocklyText {
+  fill: white !important;
+}
+
+.blocklyText {
+    font-weight: normal !important;
+    font-size: 18px !important;
+}
+
+/* Individual dropdown menu items */
+.blocklyDropDownDiv .goog-menuitem-content {
+  color: black !important;
+  font-size: 18px !important;
+  fill: black !important;
+  font-family: "Segoe UI", Arial, sans-serif !important;
+}
+
+
+.blocklyText.blocklyDropdownText {
+  fill: black !important;
+}
+
+
+/* Blue background block with white text */
+.tradeparameters-block .blocklyText {
+  fill: white !important;
+}
+
+/* Gray background block with black text */
+.market-block .blocklyText {
+  fill: black !important;
+}
+
+/* Specific styling for dropdown text */
+.blocklyDropdownText {
+    font-weight: normal !important;
+    font-size: 18px !important;
+    fill: black !important; /* Ensure dropdown text is black */
+}
+
+.blocklySvg text.blocklyDropdownText {
+  fill: black !important;
+  stroke: none !important; /* In case there's a white stroke */
+  paint-order: stroke !important;
+}
+
+.blocklyField {
+    padding: 1px 1px !important; /* Decrease padding inside the fields */
+}
+
+
+/* Dropdown container */
+.blocklyDropDownDiv {
+  background-color: #f5f5f5 !important;  /* Light gray background */
+  border: 1px solid #ccc !important;     /* Light border */
+  border-radius: 0.1vh !important;        /* Rounded corners */
+}
+
+/* Hover effect for dropdown items */
+.blocklyMenuItem:hover {
+  color: #000000 !important;             /* Ensure text stays black */
+}
+
+/* Hide scrollbars in all browsers */
+.blocklyMainWorkspaceScrollbar,
+.blocklyScrollbarHorizontal,
+.blocklyScrollbarVertical {
+    display: none !important;
+}
+
+#blocklyDiv .blocklyScrollbarHorizontal,
+#blocklyDiv .blocklyScrollbarVertical,
+#blocklyDiv .blocklyScrollbarKnob {
+  display: none !important; /* Hide all scrollbar elements */
+}
+
+/* Hides the background rails and draggable knobs of both scrollbars */
+.blocklyScrollbarHorizontal,
+.blocklyScrollbarVertical,
+.blocklyScrollbarKnob {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+#blocklyDiv .blocklyScrollbarHorizontal,
+#blocklyDiv .blocklyScrollbarVertical,
+#blocklyDiv .blocklyScrollbarKnob {
+  display: none !important;
+}
+
+.main-container {
+  overflow: hidden !important;
+}
+
+/* Optional: hide native browser scrollbars */
+#blocklyDiv::-webkit-scrollbar {
+    display: none;
+}
+
+#blocklyDiv {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* Internet Explorer 10+ */
+  background-color: var(--workspace-bg) !important;
+}
+
+#blocklyDiv::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari, Opera */
+}
+
+.main-container {
+  overflow: scroll; /* or auto — enables scrolling */
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE and Edge */
+  background-color: var(--workspace-bg) !important;
+}
+
+.main-container::-webkit-scrollbar {
+  display: none;                  /* Chrome, Safari, Opera */
+}
+
+.blocklyBlockBackground {
+    /*height: auto !important; /* Adjust block height automatically based on content */
+    padding: 1px !important; /* Adjust block padding to make blocks smaller */
+}
+
+/* Style for clickable items */
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield; /* Standard property */
+}
+
+.blocklyToolboxDiv {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent; /* For browsers that support the standard property */
+}
+
+.blocklyDraggable {
+    cursor: -webkit-grab; /* Prefixed version first */
+    cursor: grab;         /* Standard version after */
+}
+
+.blocklyDragging {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+
+.blocklyNonSelectable {
+    -webkit-user-select: none; /* Prefixed version first */
+    -ms-user-select: none;     /* IE-specific */
+    user-select: none;         /* Standard version after */
+}
+
+.clickable {
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: underline;
+    margin: 100px 0;
+}
+
+.clickable:hover {
+    color: #0056b3;
+}
+
+/* Added from HTML*/
+body {
+    box-sizing: border-box;
+    font-family: sans-serif !important;
+}
+
+header {
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    justify-content: space-between;
+}
+
+.left-group {
+    display: flex;
+    align-items: center;
+}
+
+.right-group {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 1vw;
+    margin-left: 3vw;
+}
+
+.icons {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.balance {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-item {
+    margin-right: 2vw;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.nav-item:last-child {
+    margin-right: 0;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+/* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    height: 400px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.block-section {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 20px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.block-section:hover {
+    background-color: #ddd;
+}
+
+.quick-strategy-btn {
+    background-color: red; /* Set the background color to red */
+    color: white; /* Set the text color to white */
+    padding: 10px 20px; /* Add some padding for better spacing */
+    border: none; /* Remove the default border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+    font-size: 16px; /* Adjust the font size */
+    font-weight: bold; /* Make the text bold */
+    display: block;
+    margin: 20px 0;
+}
+
+/* Styling for the toggle button */
+.block-menu-toggle {
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    margin-bottom: 10px; /* Adjusts the space between the toggle and content */
+}
+
+/* Styling for the hidden content */
+.block-menu-content.hidden {
+    display: none;
+}
+
+.block-menu-content {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+/* Style for the Blocks Menu section */
+#blocksMenuSection {
+    margin-top: 10px; /* Adjusts the space between Quick Strategy and Blocks Menu
+}
+
+/* Arrow styling */
+#toggleIcon {
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.hidden {
+    display: none;
+}
+/* Position the blocks menu at the top-left of the workspace */
+.blocks-menu-container {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    z-index: 1000;  /* Make sure it appears on top of the workspace */
+}
+
+.blocks-menu-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Hide the sections by default */
+.blocks-sections {
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    width: 200px;  /* Set a width to make them uniform */
+}
+
+.blocks-sections button {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;  /* Make buttons take full width of their container */
+}
+
+.blocks-sections button:hover {
+    background-color: #f1f1f1;
+}
+/* Completely hide all Blockly-generated scrollbars */
+.blocklyScrollbarHorizontal,
+.blocklyScrollbarVertical,
+.blocklyScrollbarKnob {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.blocklySvg .blocklyText.blocklyFieldText.blocklyDropdownText {
+  fill: black !important;
+}
+
+
+/* Make UL scrollable horizontally */
+.secondary-nav ul {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar (WebKit) */
+.secondary-nav ul::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    #rub2 #run-stop-trade {
+        width: 100%;
+        height: 6vh !important;
+        top: 0 !important;
+        right: 0;
+    }
+
+    #runButton {
+        height: 6.5vh !important;
+        width: 10vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4vh; /* space between icon and text */
+    }
+
+    #runButton .run-icon {
+        height: 60%; /* keeps icon size proportional */
+        width: auto;
+    }
+
+    #runButton .run-text {
+        font-size: 1em; /* adjust if text looks too small/large */
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #rub2 #run-stop-trade {
+        width: 100%;
+        height: 6vh !important;
+        top: 0 !important;
+        right: 0;
+    }
+}
+#rub2 {
+    position: fixed; /* make it the positioning container */
+    bottom: 0 !important;
+}
+
+@media screen and (max-width: 350px) {
+    .secondary-nav {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .secondary-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .secondary-nav ul {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+}
+
+/* Hide scrollbars for elements using this class */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+.icon-group {
+    padding-left: 1.5vw;
+}
+
+@media screen and (max-width: 700px) {
+    .icon-group {
+        padding-left: 10px;
+    }
+}
+
+/* Base styles for blocks menu container */
+.blocks-menu-container {
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    top: 9vh;
+    left: 0.7vw;
+    width: 16.1vw;
+    height: 56.5vh;
+    display: block;
+    background-color: white;
+    border-left: 0.25px solid #ccc;
+    border-right: 0.25px solid #ccc;
+    border-bottom: 0.25px solid #ccc;
+    border-top: none;
+    border-radius: 2px;
+    z-index: 10;
+}
+
+/* Search bar inside the blocks menu */
+.search-bar-container {
+    padding: 1.3vh;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 11;
+    width: 90%; /* make width relative to parent */
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 2vh auto; /* auto centers horizontally */
+    box-sizing: border-box;
+}
+
+/* Responsive tweaks for smaller screens */
+@media screen and (max-width: 700px) {
+    .blocks-menu-container {
+        width: 100px;
+        left: 5px;
+        height: 56.5vh;
+    }
+
+    .search-bar-container {
+        width: 90px;
+        height: 4vh;
+        /*margin: 1vh auto;*/
+    }
+}
+.rub {
+    display: flex;
+    flex-direction: column;      /* stack children vertically */
+    align-items: center;         /* center children horizontally */
+    justify-content: flex-end;   /* push everything to bottom */
+}
+
+
+
+.dc-toggle-switch__label {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.dc-toggle-switch__button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(128,128,128,0.4); /* off (grey) */
+  border-radius: 20px;
+  transition: background-color 0.3s;
+}
+
+.dc-toggle-switch__button::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: rgba(250,250,250,0.95); /* knob */
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.dc-toggle-switch__label.active .dc-toggle-switch__button {
+  background-color: rgba(0,200,0,0.4); /* greenish when ON */
+}
+
+.dc-toggle-switch__label.active .dc-toggle-switch__button::before {
+  transform: translateX(20px);
+}

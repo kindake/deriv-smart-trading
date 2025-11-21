@@ -1,0 +1,722 @@
+.footer_ic {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    justify-content: flex-end; /* Align items to the right */
+    position: relative; /* Adjusts positioning */
+    height: 5vh; /* Footer height */
+    width: 25vw;/*100%; /* Full width */
+    transform: translateX(-0.5vw); /* Moves it left */
+}
+
+
+/* Styling for buttons */
+.footer-btn {
+    /*background: none;*/
+    background-color: white; /*#064e72; /* Button background color */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    /*height: vh; /* Footer height */
+    align-items: center;
+    padding: 1vh 1vh;
+    border-radius: 0px;
+    transition: background 0.3s;
+}
+
+
+.footer_ic img.bu_icon {
+    width: 2vh; /*18px;*/
+    height: 2vh; /*20px;*/
+}
+
+
+/* Button hover effect */
+.footer-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Icon size */
+.footer-btn img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* Reduce image sizes to 24px */
+.footer_ic img {
+    width: 2vh; /*18px;*/
+    height: 2vh; /*20px;*/
+    object-fit: contain; /* Ensure images maintain aspect ratio */
+}
+
+/* Add spacing to push the first item (preview.png) 2vw from the right */
+.footer_ic img.p_icon {
+    width: 2vh; /*18px;*/
+    height: 2vh; /*20px;*/
+    /*margin-right: 0.4vw;
+    transform: translateX(-1vw); /* Moves it left */
+}
+
+/* Optional: Adjust the language text */
+.lang-text {
+    font-weight: bold;
+    /*margin-right: 2vw; /* Space between UK flag and 'EN' text */
+    margin-left: 1px; /* Space between UK flag and 'EN' text */
+    font-size: 10px; /* Adjust font size if needed */
+}
+
+
+.dashboard-btn {
+    display: flex;
+    align-items: center;
+    background-color: white; /*#064e72; /* Button background color */
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 0px;
+    font-size: 12px;
+    cursor: pointer; /* Makes it clickable */
+    transition: background-color 0.3s;
+}
+
+.dashboard-btn:hover {
+    background-color: #053a55; /* Slightly darker on hover */
+}
+
+.dashboard-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+
+.icons {
+    width: 24px; /* Adjust as needed */
+    height: 24px;
+    cursor: pointer; /* Makes it clickable */
+    transition: opacity 0.3s;
+}
+
+.icons:hover {
+    opacity: 0.7; /* Slight transparency effect on hover */
+}
+
+
+.dashboard-btn {
+    display: flex;
+    align-items: center;
+    background-color: white; /*#064e72; /* Button background color */
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 0px;
+    font-size: 12px;
+    cursor: pointer; /* Makes it clickable */
+    transition: background-color 0.3s;
+}
+
+.dashboard-btn:hover {
+    background-color: #053a55; /* Slightly darker on hover */
+}
+
+.dashboard-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.icons {
+    width: 24px; /* Adjust as needed */
+    height: 24px;
+    cursor: pointer; /* Makes it clickable */
+    transition: opacity 0.3s;
+}
+
+.icons:hover {
+    opacity: 0.7; /* Slight transparency effect on hover */
+}
+
+.dashboard-btn {
+    display: flex;
+    align-items: center;
+    background-color: white; /*#064e72; /* Button background color */
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 0px;
+    font-size: 16px;
+    cursor: pointer !important; /* Makes it clickable */
+    transition: background-color 0.3s;
+}
+
+.dashboard-btn:hover {
+    background-color: #053a55; /* Slightly darker on hover */
+}
+
+.dashboard-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.icons {
+    width: 24px; /* Adjust as needed */
+    height: 24px;
+    cursor: pointer; /* Makes it clickable */
+    transition: opacity 0.3s;
+}
+
+.icons:hover {
+    opacity: 0.7; /* Slight transparency effect on hover */
+}
+
+.ihidden {
+    display: none;
+}
+
+.main-container {
+    /*padding-top: 7vh; /* Space for header */
+    padding-bottom: 5vh; /* Space for footer */
+    width: 100%;
+    /*bottom: 0vh !important; /* Space for header */
+    /*height: 100% !important;
+    /*height: .0vh !important; /*calc(100vh - 21vh); /* Adjusting for header/footer */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*position: relative;*/
+    z-index: 1000;
+}
+
+.main-container {
+    position: fixed !important;     /* Stay pinned to the screen */
+    top: 7vh !important;            /* Fixed position below header */
+    left: 0 !important;             /* Align to left edge */
+    right: 0;                       /* Full width */
+    /*bottom: 5vh;                    /* Leave space for footer */
+    height: calc(100vh - 12vh) !important; /* Between header and footer */
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/*body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+}*/
+nav {
+    /*background-color: #333;*/
+    display: flex !important;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0vh;
+    overflow: hidden;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: black;
+    /*text-align: center;*/
+    padding-top: 2vw;
+    text-decoration: none;
+    /*transition: background-color 0.3s;*/
+}
+
+nav ul li a:hover {
+    /*background-color: white; /*#111;*/
+}
+
+nav ul li a.active {
+    /*background-color: white; /* White background for selected tab */
+    color: black; /* Change text color for visibility */
+    /*padding-top: 1vh;/* 4vh; /* Adjust padding for size */
+    /*border-radius: 10px; /* Keep corners rounded */
+    font-weight: bold; /* Make selected tab text bold */
+    /*padding-top: 1vh; /* Space for header */
+    /*padding-bottom: 1vw; /* Space for footer */
+    height: calc(12.5vh * 2 / 3); /*4vw;  /* Adjust as needed */
+    /*margin-top: 1vh;*/
+}
+
+nav ul li a.active {
+    color: black; /* Text color for visibility */
+    font-weight: bold; /* Bold text for the active tab */
+    height: calc(12.5vh * 2 / 3); /* Adjust height as needed */
+
+    /* Only round the top-left and top-right corners */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    /* Ensure bottom corners remain sharp */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Active state - stays white when clicked */
+nav ul li a.active {
+    background-color: white;
+}
+
+/* ACTIVE STATE */
+.secondary-nav ul li.active {
+    background-2.color: white !important;
+}
+
+.secondary-nav ul li.active a {
+    font-weight: bold !important;
+    color: black !important;
+    padding: 3vh !important; /* Adds padding around icon and text */
+}
+
+
+.dashboard-btn {
+    display: flex;
+    align-items: center;
+    background-color: white; /*#064e72; /* Adjust color as needed */
+    color: black; /*white;*/
+    border: none;
+    padding: 0vh 1vw;
+    border-radius: 0px;
+    font-size: 16px;
+    cursor: pointer !important; /* Makes it clickable */
+    transition: 0.3s;
+    height: 7vh;
+}
+
+.dashboard-btn:hover {
+    background-color: #053a55; /* Darker shade for hover effect */
+}
+
+.dashboard-icon {
+    width: 20px; /* Adjust size as needed */
+    height: 20px;
+    margin-left: 1vw;
+    margin-right: 1.5vw;
+}
+
+.left-g {
+    display: flex;
+    align-items: center;
+    gap: 2vw; /*px; /* Space between elements */
+}
+
+
+/* NAV CONTAINER */
+.secondary-nav {
+    position: relative;
+    background-color: #e5e5e5;
+    height: 12.0vh !important;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* UL STYLING */
+.secondary-nav ul {
+    position: absolute !important;
+    left: 0vh !important;         /* ← Your main requirement */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 2.3vh;
+    top: calc(12vh * 1 / 3) !important; /* 2/3 height */
+}
+
+/* LI STYLING */
+.secondary-nav ul li {
+    display: flex;
+    align-items: center;
+    margin-left: 0vh;
+}
+
+/* Override for first item */
+.secondary-nav ul li:first-child {
+    margin-left: 2.4vh;
+}
+
+/* ACTIVE STATE */
+.secondary-nav ul li.active {
+    background-2.color: white !important;
+}
+
+.secondary-nav ul li.active a {
+    font-weight: bold !important;
+    color: black !important;
+    padding: 3vh !important; /* Adds padding around icon and text */
+}
+
+/* A TAG - YOUR MAIN FOCUS */
+.secondary-nav ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    gap: 0vh;                /* Space between icon and text */
+    font-size: 2.3vh;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    padding: 3vh !important; /* Adds padding around icon and text */
+    box-sizing: border-box;    /* Ensures padding doesn't overflow */
+}
+
+/* ICON SIZING */
+.nav-icon {
+    width: 2.5vh;
+    height: 2.5vh;
+    object-fit: contain;
+}
+
+.run-btn {
+    margin-right: 10.5vw; /* Moves 'Run' button 20vh from the right */
+    /*padding: 10px 25px; /* Adjust button size */
+    background-color: rgba(50, 175, 165, 1);/* !important; /*rgba(78, 195, 197, 1) !important; /*green; /* Example styling */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 10px; /* Ensure text doesn't overflow */
+    white-space: nowrap; /* Prevent text from breaking */
+}
+
+.run-btn {
+    position: relative;
+    display: flex;
+    align-items: center;        /* Vertically center items */
+    /*justify-content: center;    /* Horizontally center items */
+    /*background-color: green;*/
+    color: white;
+    font-size: 10px;
+    gap: 0.5vh;                 /* Space between icon and text */
+    padding: 0.5vh 1vh;         /* Add some breathing space */
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    /*opacity: 0.85;*/
+    border-radius: 1px;         /* Optional: rounded corners */
+}
+
+.run-icon {
+    width: 2.5vh;
+    height: 2.5vh;
+    /*margin-left 0.5vh: ; /* Adds space between the icon and text */
+    opacity: 1;
+    /*padding-left: 2vh; /* Adjust spacing as needed */
+    flex-shrink: 0;                /* Prevent shrinking */
+}
+
+.run-btn {
+    display: flex !important;
+    align-items: center !important;        /* Vertical center */
+    justify-content: center !important;    /* Horizontal center as a group */
+    padding: 0.5vh 1vh !important;
+    height: 5.5vh !important;
+    width: 12.5vh !important;
+    border: none !important;
+    /*background-color: #4CAF50 ;*/
+    color: white !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    border-radius: 0.1vh !important;
+    cursor: pointer !important;
+    gap: 1vh !important;  /* Space between icon and text */
+    left: 0 !important;  /* Align to the left edge */
+}
+
+.run-icon {
+    width: 3vh !important;
+    height: 3vh !important;
+    object-fit: contain ;
+    /*margin-left: 0.3vh ;  /* Move icon slightly to the right */
+}
+
+.run-text {
+    display: inline-block !important;
+}
+
+/*.run-text {
+    margin: 0;
+    padding: 0;
+}*/
+.run-text {
+    padding-right: 0vh;
+}
+
+
+body {
+    /*padding: 4px;
+    background-color: grey;*/
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-container {
+    padding-top: 7vh; /* Space for header */
+    /*top: 7vh;
+    /*padding-bottom: 5vh; /* Space for footer */
+    width: 100%;
+    /*4.5vh; /*calc(100vh - 21vh); /* Adjusting for header/footer */
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2.4vh solid #e5e5e5 !important; /* Border only on the bottom */
+    /*align-items: center;*/
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    position: relative;
+    margin-left: 0; /* Aligns the div to the left */
+    z-index: 1000;
+}
+
+/* Ensure header & footer take full width */
+header, footer {
+    width: 100%;
+    background-color: white; /* White background */
+    color: black; /* Text color */
+    display: flex;
+    align-items: center;
+    /*justify-content: space-between;
+    /*padding: 1vh 2vw; /* Responsive padding */
+    /*position: relative; /* Keeps it in normal document flow */
+    z-index: 9999; /* Increased z-index */
+}
+
+/* Header specific styling */
+header {
+    position: fixed; /* Sticks to the top */
+    top: 0;
+    left: 0;
+    height: 7.5vh; /* 8% of the viewport height */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+    /*z-index: 1000; /* Ensures it's above other content */
+}
+
+/* Footer styling */
+footer {
+    position: fixed; /* Sticks to the bottom */
+    bottom: 0;
+    left: 0;
+    height: 5vh; /* 6% of the viewport height */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+    justify-content: flex-end; /* Align items to the right */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Ensure body content doesn't get hidden behind fixed header/footer */
+body {
+    /*padding-top: 7vh; /* Matches header height */
+    /*padding-bottom: 5vh; /* Matches footer height */
+    margin: 0;
+    width: 100%;
+    height: 95vh;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Ensure nav elements are aligned */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /*space-between;*/
+    width: 100%;
+}
+
+/* Responsive text & icons */
+header .icons, .balance, .login-button {
+    font-size: 1rem;
+    height: auto;
+    max-width: 100%;
+}
+
+
+/* General styling for right-g container */
+.right-g {
+    /*margin-right: 2px; /* Moves 'Run' button 20vh from the right */
+    /*border: 1px solid red; /* Ensures a red border */
+    /*width: 12vw;*/
+    margin-left: auto; /* Pushes the container to the right */
+    display: flex;  /* Ensures the buttons are properly aligned */
+    gap: 4vw;  /* Adds space between buttons */
+    align-items: center; /* Centers buttons vertically */
+    position: relative; /* Adjusts positioning */
+}
+
+.signup-button,
+.login-button {
+    padding: 1vh 0.9vw;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effects */
+.signup-button {
+    background-color: red;
+    color: white;
+    transform: translateX(-2vw); /* Moves it left */
+
+}
+
+.signup-button:hover {
+    background-color: darkred !important;
+}
+
+.login-button {
+    background-color: white;
+    color: red;
+    /*border: 1px solid green;*/
+}
+
+.login-button:hover {
+    background-color: #ffcccc !important;
+    color: white;
+}
+
+.left-group,
+.right-group {
+    display: flex;
+    align-items: center;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+/* Run Button Styles */
+.run-btn {
+    /*background-color: green; /* Red background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 1.5vh 3.5vh; /*10px 20px; /* Padding for size */
+    font-size: 12px; /* Font size */
+    /*border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    position: absolute; /* Absolute positioning */
+    right: 100px; /* 100px from the right edge */
+    top: 50%; /* Vertically center in the nav */
+    transform: translateY(-50%); /* Adjust for proper vertical alignment */
+}
+
+.run-btn:hover {
+    /*background-color: darkred; /* Darker red on hover */
+}
+
+/* Ensure nav is relatively positioned for the button to be placed inside */
+nav {
+    position: relative;
+}
+
+.main-container {
+  overflow: hidden !important;
+}
+
+
+.main-container {
+  overflow: scroll; /* or auto — enables scrolling */
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE and Edge */
+}
+
+.main-container::-webkit-scrollbar {
+  display: none;                  /* Chrome, Safari, Opera */
+}
+
+
+/* Added from HTML*/
+body {
+    /*margin: 0;
+    padding: 0;*/
+    box-sizing: border-box;
+    font-family: sans-serif !important;
+    /*font-family: Arial, sans-serif;*/
+}
+
+header {
+    width: 100%;
+    /*background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*padding: 10px 20px;
+    border-bottom: 0.5px solid #ccc;*/
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    /*height: 35px;*/
+}
+
+.left-group {
+    display: flex;
+    align-items: center;
+}
+
+.right-group {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-left: 30px;
+}
+
+.icons {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.balance {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-item {
+    margin-right: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    /*color: #007bff;*/
+}
+
+.nav-item:last-child {
+    margin-right: 0;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+

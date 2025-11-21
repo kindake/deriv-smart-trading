@@ -1,0 +1,355 @@
+import json
+import asyncio
+from channels.generic.websocket import AsyncWebsocketConsumer
+from ws.services.dc import DerivWebSocketClient  # Import your Deriv WebSocket client
+
+class TickConsumer(AsyncWebsocketConsumer):
+    async def connect(self):
+        await self.accept()
+        self.deriv_client = DerivWebSocketClient(self.send_tick_data)  # Create instance of Deriv client
+
+    async def receive(self, text_data):
+        data = json.loads(text_data)
+        symbol = data.get("symbol")
+
+        print(f"📩 Received symbol request: {symbol}")  # Debugging
+
+        # Start fetching tick data from Deriv API
+        asyncio.create_task(self.deriv_client.subscribe_to_ticks(symbol))
+
+    async def send_tick_data(self, tick_data):
+        """Send tick data to frontend."""
+        await self.send(text_data=json.dumps(tick_data))
+
+
+.bpd {
+    background-color: #e5e5e5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    height: 100%; /* Ensures it takes full height */
+    padding: 10px;
+}
+
+.bpd-top,
+.bpd-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    text-align: center;
+    width: 100%; /* Ensures full width alignment */
+}
+
+
+
+
+
+/* Styles for the progress bar */
+.status-text {
+    width: 70%;
+    /*height: 0.5vh; /* Tube-like thickness */
+    background-color: white /* Light grey background */
+    /*border-radius: 5px;
+    overflow: hidden;*/
+    margin-right: 20vw;
+    position: relative;
+    border: 1px solid black; /* Added black solid border */
+    text-align: center;
+    font-size: 10px;
+    color: red; /* Red text for visibility */
+    /*margin-top: 1.5vh;*/
+}
+
+/* Styles for the progress bar */
+.progress-container {
+    width: 70%;
+    height: 0.7vh; /* Tube-like thickness */
+    background-color: #ddd; /* Light grey background */
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 3.5vh;
+    margin-left: 6vw;
+    position: relative;
+    border: none; /*1px solid black; /* Added black solid border */
+}
+/*.footer_ic {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align icons to the right */
+    /*padding-right: 2vw; /* 2vw from the right */
+    /*gap: 3vw; /* Spacing between icons */
+/*}*/
+.footer_ic {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align icons to the right */
+    padding: 0 0vw; /* Horizontal padding */
+    gap: 3vw; /* Space between icons */
+
+    height: 5vh; /* Set height to 7% of the viewport height */
+    border-top: 2px solid #ccc; /* Add a top border */
+    width: 20vw; /*100%; /* Ensure full width */
+}
+
+/* Reduce image sizes to 24px */
+.footer_ic img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain; /* Ensure images maintain aspect ratio */
+}
+
+/* Optional: Adjust the language text */
+.lang-text {
+    font-weight: bold;
+    margin-left: 0.5vw; /* Space between UK flag and 'EN' text */
+    font-size: 16px; /* Adjust font size if needed */
+}
+
+.footer-icon {
+    width: 30px; /* Adjust icon size */
+    height: auto;
+}
+
+.uk-flag {
+    margin-right: 4vw; /* 4vw to the right of preview */
+}
+
+.lang-text {
+    font-weight: bold;
+    font-size: 12px;
+    position: relative;
+    /*top: -2px; /* Move slightly up */
+}
+
+.dashboard-btn {
+    display: flex;
+    align-items: center;
+    background-color: white; /*#064e72; /* Button background color */
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 0px;
+    font-size: 16px;
+    cursor: pointer; /* Makes it clickable */
+    transition: background-color 0.3s;
+}
+
+.dashboard-btn:hover {
+    background-color: #053a55; /* Slightly darker on hover */
+}
+
+.dashboard-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.icons {
+    width: 24px; /* Adjust as needed */
+    height: 24px;
+    cursor: pointer; /* Makes it clickable */
+    transition: opacity 0.3s;
+}
+
+.icons:hover {
+    opacity: 0.7; /* Slight transparency effect on hover */
+}
+
+.footer_ic {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align items to the right */
+    padding: 0 2vw; /* Space from the right edge */
+    gap: 3vw; /* Space between icons */
+
+    height: 7vh; /* Footer height */
+    border-top: 2px solid #ccc; /* Top border */
+    width: 100%; /* Full width */
+}
+
+/* Reduce image sizes to 24px */
+.footer_ic img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain; /* Ensure images maintain aspect ratio */
+}
+
+/* Optional: Adjust the language text */
+.lang-text {
+    font-weight: bold;
+    margin-left: 0.5vw; /* Space between UK flag and 'EN' text */
+    font-size: 16px; /* Adjust font size if needed */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.secondary-nav ul li {
+    /*padding: 60px 1px;*/
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.secondary-nav ul li a {
+    text-decoration: none;
+    color: black; /* Ensures text is visible */
+    display: block;
+    /*padding: 1vw 1vw; /* Ensures full clickable area */
+    /*gap: 1vw; /* Space between icon and text */
+}
+
+/* Active state (when clicked) */
+.secondary-nav ul li.active {
+    /*background-color: white; /* Turns white when active */
+}
+/* Style the active <li> */
+.secondary-nav ul li.active {
+    background-color: white !important;   /* Makes background white */
+}
+
+/* Style the <a> inside the active <li> */
+.secondary-nav ul li.active a {
+    font-weight: bold !important;         /* Makes text bold */
+    color: black !important;              /* Ensure the text is visible */
+}
+
+
+.secondary-nav {
+    display: flex;  /* Enables flexbox */
+    align-items: center;  /* Vertically centers items */
+    justify-content: space-between;  /* Ensures proper spacing */
+    /*padding: 10px 20px;  /* Adds some spacing inside the nav */
+    background-color: #e5e5e5; /* Example background */
+    height: 12.5vh;  /* Adjust as needed */
+    position: relative; /* Keeps children inside */
+}
+
+.secondary-nav ul {
+    position: absolute;
+    position: absolute !important;   /* Ensure absolute positioning */
+    /*left: 0vh !important;            /* Force 0vh from the left */
+    /*position: relative;*/
+    list-style: none;  /* Removes bullet points */
+    /*top: 4vh; /* Moves the list 10px downward */
+    font-size: 2.3vh;
+}
+/*.secondary-nav a {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+.secondary-nav a .nav-icon {
+    margin-right: 6px;
+}*/
+
+.secondary-nav ul {
+    list-style: none;  /* Removes bullet points */
+    /*position: relative;*/
+    padding: 0;
+    margin: 0;
+}
+
+/* Move the entire list item (including text and image) down */
+.secondary-nav ul li {
+    position: relative;
+    /*top: 3vh;*/
+    display: flex;
+    align-items: center; /* Keeps text and icon aligned */
+    gap: 1vw; /* Space between icon and text */
+}
+
+/*
+.secondary-nav ul {
+    list-style: none;  /* Removes bullet points */
+    /*display: flex;  /* Enables flexbox for list items */
+    /*padding: 0;*/
+    /*margin: 10;
+}
+*/
+.secondary-nav ul li {
+    margin-left: 10vh; /* Creates spacing between items */
+}
+
+.secondary-nav ul li:first-child {
+    margin-left: 1.7vh; /* Moves 'Dashboard' 15vh from the left */
+}
+
+
+
+
+.secondary-nav {
+    position: relative;
+    background-color: #e5e5e5;
+    height: 12.5vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* UL is shifted 2/3 down and 5px from the left */
+.secondary-nav ul {
+    position: absolute;
+    /*top: 0vh; /*calc(12.5vh * 1 / 5); /* 2/3 height */
+    /*left: 0px; /* 5px from the left of the nav */
+    /*padding: 0;
+    margin: 0;*/
+    list-style: none;
+}
+
+/* LI blocks have no margin between them, use padding instead */
+.secondary-nav ul li {
+    display: flex;
+    align-items: center;
+    /*padding-left: 0.5vh;  /* 4vh space inside from left */
+    /*padding-right: 0.5vh; /* 4vh space inside from right */
+    /*padding-top: 1vh;   /* Optional: space inside top */
+    /*padding-bottom: 1vh;/* Optional: space inside bottom */
+    /*margin: 0;          /* No space between list items */
+    height: auto;
+}
+
+/* Anchor spans full area, flex layout */
+.secondary-nav ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    width: 100%; /* fill the li */
+    gap: 0.5vh;    /* space between image and text */
+    font-size: 2.3vh;
+}
+
+/* Icon sizing for consistency */
+.nav-icon {
+    width: 2.5vh;
+    height: 2.5vh;
+    object-fit: contain;
+}
+
+
+
+

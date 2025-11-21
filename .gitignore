@@ -1,0 +1,32 @@
+# =========================
+# Django & Python ignores
+# =========================
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+
+# =========================
+# Environment & Secrets
+# =========================
+.env
+*.env
+
+# =========================
+# IDE / Editor files
+# =========================
+.vscode/
+.idea/
+.DS_Store
+
+# =========================
+# Node / Frontend (if used)
+# =========================
+node_modules/
+npm-debug.log
+
+# =========================
+# Archive / Backups
+# =========================
+_archive_unused/
+dev_backup/

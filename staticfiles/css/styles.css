@@ -1,0 +1,126 @@
+/* Block Menu Styles */
+#blocklyContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+#blocklyMenu {
+    width: 300px;
+    border-right: 100px solid black;
+    padding: 10px;
+}
+
+.block-section {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.block-section:hover {
+    background-color: #ddd;
+}
+
+/* Blockly Workspace Styles */
+#blocklyDiv {
+    height: 480px;
+    width: 600px;
+    border: 1px solid black;
+    flex-grow: 1;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%; /* Set the width to a smaller size */
+    height: 50%; /* Set the height to a smaller size */
+    background-color: rgba(0,0,0,0.4); /* Semi-transparent background */
+    overflow: hidden;
+    padding: 0; /* Remove any padding around the modal */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 100%; /* Adjust to fill the modal */
+    height: 100%; /* Adjust to fill the modal */
+    box-sizing: border-box;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Animation for modal */
+@keyframes slide-in {
+    from { top: 60%; opacity: 0; }
+    to { top: 50%; opacity: 1; }
+}
+
+/* Quick Strategy Styling */
+.clickable {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+#quickStrategyModal .modal-header {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+#quickStrategyModal .modal-body {
+    padding: 20px;
+    text-align: center;
+}
+
+#quickStrategyModal .close {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Left and right split layout */
+.container {
+    display: flex;
+}
+
+.left-panel {
+    width: 25%;
+}
+
+.right-panel {
+    width: 75%;
+    padding: 20px;
+}
+
+

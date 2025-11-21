@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'botbuilder/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/blocks_compressed.js"></script> <!-- Required for built-in blocks -->
+    <script src="https://unpkg.com/blockly/msg/en.js"></script> <!-- Language pack -->
+    <script src="https://unpkg.com/blockly/python_compressed.js"></script>
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+{% endblock %}
+
+{% block content %}
+    <!-- Main container to push content below header -->
+    <div id="mc" class="main-container">
+
+        {% include "includes/secondary_nav.html" %}
+
+        <div id="mac" class="content">
+            <p>Import a bot from your computer or Google Drive, build it from scratch, or start with a quick strategy.</p>
+
+            <div class="icon-container">
+
+                <div class="icon-item" id="uploadFromComputerBtn">
+                    <img id="uploadIcon"
+                         src="{% static 'icons/deriv-icon.svg' %}"
+                         alt="My Computer"
+                         class="icon">
+                    <p>My Computer</p>
+                </div>
+
+                <!-- Hidden file input (accepts only .xml files) -->
+                <input type="file" id="fileInput" accept=".xml" style="display: none;" />
+
+                <div class="icon-item" onclick="window.location.href='upload-from-google-drive.html';">
+                    <img src="{% static 'icons/google_drive.svg' %}" alt="Google Drive" class="icon">
+                    <p>Google Drive</p>
+                </div>
+
+                <div class="icon-item" onclick="window.location.href='{% url 'botbuilder:index' %}';">
+                    <img src="{% static 'icons/botbu.svg' %}" alt="Bot Builder" class="icon">
+                    <p>Bot Builder</p>
+                </div>
+                <div class="icon-item" id="qsb">
+                    <img src="{% static 'icons/quick-s.svg' %}" alt="Quick Strategy" class="icon">
+                    <p>Quick Strategy</p>
+                </div>
+            </div>
+
+            <h1>Your bots:</h1>
+        </div>
+        <img src="{% static 'icons/back-arrow.png' %}" id="tBut" class="back-arrow" style="display: none;">
+
+        {% include "includes/resultwindow.html" %}
+    </div>
+{% endblock %}
+
+{% block footer_scripts %}
+    <script>
+      const botbuilderUrl = "{% url 'botbuilder' %}";
+    </script>
+    <script src="{% static 'botbuilder/js/custom_blocks.js' %}"></script>
+    <script src="{% static 'core/js/core.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,14 @@
+/* shared.css */
+.secondary-nav ul li.active {
+    background-color: white !important;
+}
+
+.secondary-nav ul li.active a {
+    font-weight: bold !important;
+    color: black !important;
+    padding: 3vh !important;
+}
+
+#authContainer {
+    display: none;
+}

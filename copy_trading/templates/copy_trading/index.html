@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Copy Trading{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'botbuilder/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'freebots/css/styles.css' %}">
+    <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/blocks_compressed.js"></script> <!-- Required for built-in blocks -->
+    <script src="https://unpkg.com/blockly/msg/en.js"></script> <!-- Language pack -->
+    <script src="https://unpkg.com/blockly/python_compressed.js"></script>
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+{% endblock %}
+
+{% block content %}
+    <!-- Main container to push content below header -->
+    <div id="mc" class="main-container">
+
+        {% include "includes/secondary_nav.html" %}
+
+        <div id="mac" class="content">
+            <h1 style="margin-top: 6vh; font-size: 16px; font-weight: bold; color: red;">
+                Copy Trading
+            </h1>
+            <p>Welcome to the Copy Trading page. Here you will be able to manage and follow traders.</p>
+        </div>
+
+        <!-- optional back button and result window like Free Bots -->
+        <img src="{% static 'icons/back-arrow.png' %}" id="tBut" class="back-arrow">
+        {% include "includes/resultwindow.html" %}
+    </div>
+{% endblock %}
+
+{% block footer_scripts %}
+    <!-- Page-specific scripts -->
+    <script src="{% static 'botbuilder/js/custom_blocks.js' %}"></script>
+    <script src="{% static 'botbuilder/js/botbuilder.js' %}"></script>
+    <script src="{% static 'copy_trading/js/copy_trading.js' %}"></script>  {# ✅ make a simple placeholder js file #}
+{% endblock %}

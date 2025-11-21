@@ -1,0 +1,136 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}D_Bots{% endblock %}</title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+
+    <script>
+      const savedTheme = localStorage.getItem('theme');
+      const theme = savedTheme || 'light'; // ✅ Always start in light mode
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    </script>
+
+    <!-- ✅ Theme stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+
+    <!-- Core global styles -->
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- HTMX for SPA behavior -->
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+
+
+    <!-- CSRF token support for HTMX -->
+    <script>
+        document.body?.addEventListener('htmx:configRequest', function(event) {
+            event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+        });
+    </script>
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+<!--body hx-boost="true"-->
+    <!-- ✅ Shared navigation header -->
+    <header>
+        <nav class="main-nav">
+            <div class="left-g">
+                <a
+                  href="{% url 'dashboard' %}"
+                  hx-target="#page-content"
+                  hx-push-url="true">
+                  <button class="dashboard-btn">
+                    <img src="{% static 'icons/astronaut.png' %}" alt="Rocket Icon" class="dashboard-icon">
+                    D-bots
+                  </button>
+                </a>
+
+                <a href="https://t.me/+dwSOMj_IZrJiZTA0" target="_blank" rel="noopener noreferrer">
+                    <img src="{% static 'icons/round.png' %}" alt="Telegram" class="icons">
+                </a>
+            </div>
+
+            <div class="spacer"></div>
+
+            <!-- ✅ Auth container (persistent across all pages) -->
+            <div class="right-g" id="authContainer" style="display: none;">
+                <button id="loginButton" class="login-button">Log in</button>
+                <button id="signupButton" class="signup-button">Sign up</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ✅ Main page container for HTMX content -->
+    <div id="page-content" hx-target="this" hx-swap="outerHTML">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- ✅ Universal Footer (persistent across all views) -->
+    <footer>
+        <div class="footer_ic">
+            <!-- Button (left side) -->
+            <button class="footer-btn">
+                <img src="{% static 'icons/button.png' %}" alt="Button" class="bu_icon">
+            </button>
+
+            <!-- GMT Time -->
+            <div class="gmt-time" id="gmtTime">Loading...</div>
+
+            <!-- Theme Toggle -->
+            <button class="footer-btn" id="themeToggle">
+                <img src="{% static 'icons/sunny.png' %}" alt="Sunny" class="s_icon" id="themeIcon">
+            </button>
+
+            <!-- Language -->
+            <button class="footer-btn">
+                <img src="{% static 'icons/united-kingdom.png' %}" alt="UK Flag" class="f_icon">
+                <span class="lang-text">EN</span>
+            </button>
+
+            <!-- Fullscreen Toggle -->
+            <button id="fullscreenToggle" class="footer-btn">
+                <img id="fullscreenIcon" src="{% static 'icons/full-screen.png' %}" alt="Fullscreen" class="p_icon">
+            </button>
+        </div>
+    </footer>
+
+    <!-- ✅ Hidden Blockly Workspace Container -->
+    <div id="blocklyDiv" style="display: none; width: 100vw; height: 77vh;"></div>
+
+    <!-- ✅ Global scripts loaded once -->
+    <script>
+        const csrfToken = '{{ csrf_token }}';
+    </script>
+
+    <script>
+        {% load static %}
+        // ✅ Django-generated URLs and static paths
+        window.STATIC_ICONS = {
+            astronaut: "{% static 'icons/astronaut.png' %}",
+            menu: "{% static 'icons/menu.svg' %}",
+        };
+
+        window.DASHBOARD_URL = "{% url 'dashboard' %}";
+    </script>
+
+    <script src="{% static 'js/websocket.js' %}"></script>
+
+    <!-- ✅ HTMX Debugging Support -->
+    <script>
+        document.body.addEventListener('htmx:responseError', e => console.error('HTMX error', e.detail));
+        document.body.addEventListener('htmx:beforeSwap', e => console.log('Swapping into:', e.target));
+    </script>
+
+    <!-- ✅ Page-specific script injection block -->
+    {% block footer_scripts %}{% endblock %}
+</body>
+</html>
+

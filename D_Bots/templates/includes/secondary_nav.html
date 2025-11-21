@@ -1,0 +1,63 @@
+{% load static %}
+
+<nav class="secondary-nav">
+    <ul>
+      <li>
+        <a href="{% url 'dashboard' %}"
+           hx-target="#page-content"
+           hx-push-url="true">
+          <img src="{% static 'icons/dashboard.png' %}" alt="Dashboard Icon" class="nav-icon">
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'botbuilder' %}"
+           hx-target="#page-content"
+           hx-push-url="true">
+          <img src="{% static 'icons/puzzle.png' %}" alt="puzzle Icon" class="nav-icon">
+          Bot Builder
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'tutorials' %}"
+           hx-target="#page-content"
+           hx-push-url="true">
+          <img src="{% static 'icons/chart.png' %}" alt="Chart Icon" class="nav-icon">
+          Charts
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'freebots' %}"
+           hx-target="#page-content"
+           hx-push-url="true">
+          <img src="{% static 'icons/gear.png' %}" alt="gear Icon" class="nav-icon">
+          Free Bots
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'copy_trading' %}"
+           hx-target="#page-content"
+           hx-push-url="true">
+          <img src="{% static 'icons/copy_trading.svg' %}" alt="Copy Trading Icon" class="nav-icon">
+          Copy Trading
+        </a>
+      </li>
+    </ul>
+
+    <div id="run-stop-trade" class="rst">
+        <button id="runButton" class="run-btn">
+            <img src="{% static 'icons/play.svg' %}" alt="Play Icon" class="run-icon">
+            <span class="run-text">Run</span>
+        </button>
+
+        <div class="progress-wrapper">
+            <div class="status-text">Bot is not running</div>
+            <div class="progress-container">
+                <span class="dot left-dot">•</span>
+                <span class="dot center-dot">•</span>
+                <span class="dot right-dot">•</span>
+                <div id="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+</nav>

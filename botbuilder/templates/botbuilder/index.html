@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Bot Builder{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'botbuilder/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/blocks_compressed.js"></script> <!-- Required for built-in blocks -->
+    <script src="https://unpkg.com/blockly/msg/en.js"></script> <!-- Language pack -->
+    <script src="https://unpkg.com/blockly/python_compressed.js"></script>
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+{% endblock %}
+
+{% block content %}
+    <!-- Main container to push content below header -->
+    <div id="mc" class="main-container">
+
+        {% include "includes/secondary_nav.html" %}
+
+        <div id="blocklyWrapper" style="position: absolute; left: 2.4vh; width: 100vw;"></div>
+        <div id="blocklyDiv" class="blockly-container">
+            <img src="{% static 'icons/back-arrow.png' %}" id="tBut" class="back-arrow">
+        </div>
+
+        {% include "includes/resultwindow.html" %}
+
+    </div>
+{% endblock %}
+
+{% block footer_scripts %}
+    <!-- Page-specific scripts (no footer HTML here!) -->
+    <script src="{% static 'botbuilder/js/custom_blocks.js' %}"></script>
+    <script src="{% static 'botbuilder/js/botbuilder.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+           // ✅ Check qson flag
+            const isQSon = localStorage.getItem("qson") === "true";
+
+            if (!isQSon) {
+                // Only dispatch event if Quick Strategy is OFF
+                console.log("(Quick Strategy OFF)");
+
+            } else {
+                console.log("(Quick Strategy ON)");
+                openQuickStrategyOverlay();  // calls our function
+            }
+        });
+    </script>
+
+{% endblock %}

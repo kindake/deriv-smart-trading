@@ -1,0 +1,39 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Chart{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'botbuilder/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'tutorials/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/blocks_compressed.js"></script> <!-- Required for built-in blocks -->
+    <script src="https://unpkg.com/blockly/msg/en.js"></script> <!-- Language pack -->
+    <script src="https://unpkg.com/blockly/python_compressed.js"></script>
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+{% endblock %}
+
+{% block content %}
+    <section data-page="tutorials">
+
+        <!-- Main container to push content below header -->
+        <div id="mc" class="main-container">
+
+            {% include "includes/secondary_nav.html" %}
+
+            <div id="chart-page-container" class="content"></div>
+            <img src="{% static 'icons/back-arrow.png' %}" id="tBut" class="back-arrow">
+            {% include "includes/resultwindow.html" %}
+
+        </div>
+
+    </section>
+{% endblock %}
+
+{% block footer_scripts %}
+    <script src="{% static 'tutorials/js/tutorials.js' %}"></script>
+{% endblock %}

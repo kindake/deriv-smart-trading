@@ -1,0 +1,171 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="eS2hY|B(MNMZ+P9gFK7;">ema</variable>
+    <variable id="_LO)|F-bAIL:LdZW1Sq6">sma</variable>
+  </variables>
+  <block type="tradeparameters" id="Kbzq4PhY45AnD,fv4n*-" x="390" y="94">
+    <field name="tpl">1.Trade parameters                 </field>
+    <field name="roatl">Run once at start:                                                     </field>
+    <field name="tol">Trade options:</field>
+    <statement name="tp">
+      <block type="market" id="aIXE[,|i7@7.4e_`S1XS">
+        <field name="mktl">market:  </field>
+        <field name="mkts">Derived</field>
+        <field name="sbmktsl:">&gt;</field>
+        <field name="sbmkts">Continuous Indices</field>
+        <field name="smbl">&gt;</field>
+        <field name="sl">1HZ10V</field>
+        <next>
+          <block type="Trade_Type" id="fjJ8:*A7dYGhl@(],F*9">
+            <field name="t_t">Trade Type:  </field>
+            <field name="tt1">Up/Down</field>
+            <field name="value:">&gt;</field>
+            <field name="tt2">callput-Rise/Fall</field>
+            <next>
+              <block type="Contract_Type" id="qTT$FZy#~r:{NNpM?H-?">
+                <field name="ct">Contract Type:  </field>
+                <field name="ct1">both</field>
+                <next>
+                  <block type="Default_Candle_Interval" id="0}](u|U+hh6|(m#h~=Pj">
+                    <field name="d_c_i">Default Candle Interval:  </field>
+                    <field name="dciv">1m</field>
+                    <next>
+                      <block type="Restart_buy_sell" id="ZGZFKb1l4`^T(I)VIR/z">
+                        <field name="rb/s">Restart buy/sell (disable for better perfomance): </field>
+                        <field name="rbscb">FALSE</field>
+                        <next>
+                          <block type="Restart_last_trade_on_error" id="f`$]~am{L/.VKj(ig/WL">
+                            <field name="rltoebitut">Restart last trade on error (bot ignores the unsuccesful trade):</field>
+                            <field name="rltoecb">TRUE</field>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="roat">
+      <block type="Exponential_Moving_Average__EMA_" id="BPB%AF.JZsRl)Y$2v)N%">
+        <field name="setl">set</field>
+        <field name="emava" id="eS2hY|B(MNMZ+P9gFK7;">ema</field>
+        <field name="tmal"> to Exponential Moving Average   </field>
+        <statement name="emas">
+          <block type="input_List" id="IV!3OK}2K_rSwER}KEH3">
+            <field name="ill"> Input List </field>
+            <value name="ilv">
+              <block type="Tick_list" id="trade_param_7">
+                <field name="tll">Tick list </field>
+              </block>
+            </value>
+            <next>
+              <block type="Period__" id="ZJL#JspBblTJYYiXU[a~">
+                <field name="pl"> Period </field>
+                <value name="pv">
+                  <block type="math_number" id="-GHU2QC72W/^YX1i6o:G">
+                    <field name="NUM">8</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="Simple_Moving_Average__SMA_" id="0$R#ufDjpStL@4j+~4VX">
+            <field name="setl">set</field>
+            <field name="smava" id="_LO)|F-bAIL:LdZW1Sq6">sma</field>
+            <field name="tsmal"> to Simple Moving Average   </field>
+            <statement name="smas">
+              <block type="input_List" id="B5AA3O3-wBZ55q;[{!_(">
+                <field name="ill"> Input List </field>
+                <value name="ilv">
+                  <block type="Tick_list" id="k%`ROl.jzK[m~6.Nc11:">
+                    <field name="tll">Tick list </field>
+                  </block>
+                </value>
+                <next>
+                  <block type="Period__" id="JMI?Dn(+,kIEvWRAa!=*">
+                    <field name="pl"> Period </field>
+                    <value name="pv">
+                      <block type="math_number" id="rMEzJqe3ue)Mo2?Tt_f~">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="to">
+      <block type="Duration" id="M0AP!VWOqFnoXvb@R#M.">
+        <field name="drl">Duration:</field>
+        <field name="drd">t</field>
+        <field name="drv">5</field>
+        <field name="lst">Stake: USD </field>
+        <field name="st">1</field>
+        <field name="lstl">(min:0.35 - max:50000)</field>
+      </block>
+    </statement>
+  </block>
+  <block type="Sell_conditions" id="49_NkRa,~)Bg@eC=dJ{5" x="1140" y="94">
+    <field name="Sc">3. Sell conditions                                                     </field>
+    <statement name="Scs">
+      <block type="Conditional_if" id="CT{flSiy|a$m%6sL[@j@">
+        <mutation xmlns="http://www.w3.org/1999/xhtml" elseifs="0" else="0"></mutation>
+        <field name="if">if</field>
+        <field name="th">then                                   </field>
+        <value name="Ci">
+          <block type="Sell_is_available" id="=o~~0dF^HLS00FqT_EA1">
+            <field name="Sia">Sell is available</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="Restart_trading_conditions" id="Rpbojg=Tzleknnb*`X/A" x="1140" y="324">
+    <field name="Rtc">4. Restart trading conditions                                   </field>
+    <statement name="Rtcs">
+      <block type="Trade_again" id="GLWBkH5Yh-{@-mA4;YXf">
+        <field name="Ta">Trade again</field>
+      </block>
+    </statement>
+  </block>
+  <block type="Purchase_conditions" id="BOR1C)F2(1;(Ej1!2;cm" x="985" y="577">
+    <field name="Pc">2. Purchase conditions                                            </field>
+    <statement name="Pcs">
+      <block type="Conditional_if" id="l6">
+        <mutation xmlns="http://www.w3.org/1999/xhtml" elseifs="0" else="0"></mutation>
+        <field name="if">if</field>
+        <field name="th">then                                   </field>
+        <value name="Ci">
+          <block type="logic_compare" id="l1">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="variables_get" id="get_sma">
+                <field name="VAR" id="eS2hY|B(MNMZ+P9gFK7;">ema</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="variables_get" id="J=xR~`q9O_Ua}X!-c:5~">
+                <field name="VAR" id="_LO)|F-bAIL:LdZW1Sq6">sma</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="cifs">
+          <block type="Purchase" id="!V/hAZiRuS{}jxi@/6M:">
+            <field name="Pl">Purchase</field>
+            <field name="Pdd">Rise</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
