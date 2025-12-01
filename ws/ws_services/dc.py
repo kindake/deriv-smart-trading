@@ -10,7 +10,7 @@ from shared.shared_q import shared_q
 import asyncio
 import time
 from .redis_conn import set_connection_status, delete_connection_status
-
+import os
 
 class DerivWebSocket:
     # def __init__(self, api_token, demo_token):
@@ -20,7 +20,7 @@ class DerivWebSocket:
         self.symbol = symbol
         self.token = api_token
         self.d_token = demo_token
-        self.app_id = 61801  # App ID for authentication
+        self.app_id = int(os.getenv("APP_ID")  # App ID for authentication
         self.balance = None  # Cached balance
         self.ws = None  # WebSocket connection
         self.subscriptions = {}  # Store active subscriptions for each symbol
