@@ -8,15 +8,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
-"""
-
-#from pathlib import Path
-#import os
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-#BASE_DIR = Path(__file__).resolve().parent.parent
-
-#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+""
 
 from pathlib import Path
 import os
@@ -27,8 +19,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-8s786t6sbmkbzl+lqs@2v1-5vrd$e25(ja-tim+v2e11y%95bh'
@@ -91,40 +81,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'D_Bots.urls'
 # trading_platform/settings.py
-'''
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-'''
-'''
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # ✅ Add this line
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-'''
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -141,149 +98,8 @@ TEMPLATES = [
     },
 ]
 
-"""
-import os
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-"""
 ASGI_APPLICATION = 'D_Bots.asgi.application'
-'''
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [("redis://localhost:6379")],  # Redis URL
-        },
-    },
-}
-WSGI_APPLICATION = 'D_Bots.wsgi.application'
-'''
-'''
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer",
-    },
-}
-'''
-'''
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],
-        },
-    },
-}
-'''
-'''
-import urllib.parse
 
-# Parse the REDIS_URL into host and port for compatibility with Channels
-redis_url = os.environ.get("REDIS_URL")
-
-if redis_url:
-    parsed_url = urllib.parse.urlparse(redis_url)
-    redis_host = parsed_url.hostname
-    redis_port = parsed_url.port
-    redis_password = parsed_url.password
-    redis_scheme = parsed_url.scheme
-
-    CHANNEL_LAYERS = {
-        "default": {
-            "BACKEND": "channels_redis.core.RedisChannelLayer",
-            "CONFIG": {
-                "hosts": [{
-                    "address": (redis_host, redis_port),
-                    "password": redis_password,
-                    "ssl": redis_scheme == "rediss",  # Enables TLS for Upstash
-                }],
-            },
-        },
-    }
-else:
-    raise ValueError("REDIS_URL environment variable is not set.")
-'''
-'''
-import urllib.parse
-
-redis_url = os.environ.get("REDIS_URL")
-
-if redis_url:
-    parsed_url = urllib.parse.urlparse(redis_url)
-    redis_host = parsed_url.hostname
-    redis_port = parsed_url.port
-    redis_password = parsed_url.password
-    redis_scheme = parsed_url.scheme
-
-    redis_address = f"{redis_scheme}://:{redis_password}@{redis_host}:{redis_port}"
-
-    CHANNEL_LAYERS = {
-        "default": {
-            "BACKEND": "channels_redis.core.RedisChannelLayer",
-            "CONFIG": {
-                "hosts": [redis_address],
-            },
-        },
-    }
-else:
-    raise ValueError("❌ REDIS_URL environment variable is not set.")
-'''
-'''
-from dotenv import load_dotenv
-
-# Load environment variables from .env file
-load_dotenv()
-
-redis_url = os.environ.get("REDIS_URL")
-
-if not redis_url:
-    raise ValueError("REDIS_URL environment variable is not set.")
-
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [redis_url],
-        },
-    },
-}
-
-'''
-'''
-import os
-from dotenv import load_dotenv
-load_dotenv()
-
-redis_url = os.environ.get("REDIS_URL")
-
-if not redis_url:
-    raise ValueError("❌ REDIS_URL not set in .env")
-
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [redis_url],  # ✅ full rediss:// URL from .env
-        },
-    },
-}
-'''
 import os
 from dotenv import load_dotenv
 
